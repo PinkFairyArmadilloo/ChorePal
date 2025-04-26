@@ -1,12 +1,12 @@
-const connect = require('./connect');// module that handles connecting to mongodb
+const connect = require('./connect'); // module that handles connecting to mongodb
 const express = require('express');
-const cors = require('cors');  //cors allows frontend to talk to backend
+const cors = require('cors'); //cors allows frontend to talk to backend
 
-const app = express(); 
+const app = express();
 const PORT = 3000;
 
 app.use(cors()); //allows requests from react frontend
-app.use(express.json());
+app.use(express.json()); //parses incoming json data in request body
 
 //connect to DB, then start server
 async function startServer() {
