@@ -8,7 +8,7 @@ let childRoutes = express.Router();
 
 // #1 retrieve all
 // http://localhost:3000/chores
-childRoutes.route('/child').get(async (req, res) => {
+childRoutes.route('/children').get(async (req, res) => {
   let db = database.getDb();
   let data = await db.collection('child').find({}).toArray();
   if (data.length > 0) {
@@ -19,7 +19,7 @@ childRoutes.route('/child').get(async (req, res) => {
 });
 // #2 retrieve one
 // http://localhost:3000/chores/id
-childRoutes.route('/child/:id').get(async (req, res) => {
+childRoutes.route('/children/:id').get(async (req, res) => {
   let db = database.getDb();
   let data = await db
     .collection('child')
@@ -32,7 +32,7 @@ childRoutes.route('/child/:id').get(async (req, res) => {
 });
 // #3 create one
 // http://localhost:3000/chores
-childRoutes.route('/child').post(async (req, res) => {
+childRoutes.route('/children').post(async (req, res) => {
   let db = database.getDb();
   let mongoObject = {
     username: req.body.username,
@@ -42,7 +42,7 @@ childRoutes.route('/child').post(async (req, res) => {
 });
 // #4 update one
 // http://localhost:3000/chores/id
-childRoutes.route('/child/:id').put(async (req, res) => {
+childRoutes.route('/children/:id').put(async (req, res) => {
   let db = database.getDb();
   let mongoObject = {
     $set: {
@@ -57,7 +57,7 @@ childRoutes.route('/child/:id').put(async (req, res) => {
 
 // #5 delete one
 // http://localhost:3000/chores/id
-childRoutes.route('/child/:id').delete(async (req, res) => {
+childRoutes.route('/children/:id').delete(async (req, res) => {
   let db = database.getDb();
   let data = await db
     .collection('child')
