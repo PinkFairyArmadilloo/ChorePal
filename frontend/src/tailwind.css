@@ -1,0 +1,46 @@
+@import "tailwindcss/preflight";
+@tailwind utilities;
+/* @import "tailwindcss"; */
+/* @import 'tailwindcss/base'; 
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';  */
+
+/* Set up default global styles */
+:root {
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);  /* Default text color */
+  background-color: #0a2540;  /* Navy*/
+}
+
+body {
+  background-color: #0a2540;  /* Navy*/
+}
+
+h1 {
+  color: #143e61;  /* Primary Dark (Navy Blue) */
+}
+
+a {
+  color: #5fbfcb;  /* Accent Teal */
+}
+
+a:hover {
+  color: #dc6939;  /* Accent Orange */
+}
+
+button {
+  background-color: #dc6939;  /* Accent Orange */
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #143e61;  /* Primary Dark */
+    background-color: #ffffff;  /* White background */
+  }
+  a:hover {
+    color: #dc6939;  /* Accent Orange */
+  }
+  button {
+    background-color: #5fbfcb;  /* Accent Teal */
+  }
+}
