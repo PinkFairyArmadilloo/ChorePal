@@ -1,15 +1,22 @@
 @import "tailwindcss/preflight";
 @tailwind utilities;
-/* @import "tailwindcss"; */
-/* @import 'tailwindcss/base'; 
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';  */
+
+@layer components {
+  
+}
+
+@layer base {
+  body {
+      background-color:  #5fbfcb;  /* Navy*/
+  }
+}
+
 
 /* Set up default global styles */
 :root {
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);  /* Default text color */
-  background-color: #0a2540;  /* Navy*/
+  background-color: #5fbfcb;  /* Navy*/
 }
 
 body {

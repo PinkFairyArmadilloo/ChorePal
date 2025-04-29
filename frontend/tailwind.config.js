@@ -13,10 +13,10 @@ module.exports = {
                     // "light-gray": "#e2e8f0",   // for backup
 
                     primaryDark: '#1A2B4C', // navy blue color
-        accentOrange: '#FF6600', // bright orange
-        accentOrangeDark: '#CC5200', // darker orange on hover
-        surface: '#2E3A59', // optional: lighter navy background for inside cards
-        lightGray: '#F7F9FA', // page background
+                    accentOrange: '#FF6600', // bright orange
+                    accentOrangeDark: '#CC5200', // darker orange on hover
+                    surface: '#2E3A59', // optional: lighter navy background for inside cards
+                    lightGray: '#F7F9FA', // page background
                     // navy: '#0B2B4B',
                     // teal: '#4CB8B3',
                     // sky: '#B4E9F3',

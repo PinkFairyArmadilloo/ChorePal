@@ -1,37 +1,34 @@
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  Typography,
+  Button,
+} from "@material-tailwind/react";
+
 function DayCard({ dayName }) {
   return (
-    <div className="w-1/4 h-72 p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 flex items-center">
-      <div className="flex-shrink-0 mr-6">
-        <svg className="w-16 h-16 text-accentOrange" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6" />
-        </svg>
-      </div>
-      
-      <div className="flex-1 h-full">
-        <a href="#">
-          <h3 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{dayName}</h3>
-        </a>
+    <div className="bg-primaryDark text-white rounded-xl shadow-lg p-4 flex flex-col gap-4">
+      <h3 className="text-2xl font-bold">{dayName}</h3>
 
-        <div className="bg-surface p-4 rounded-lg h-full">
-          <h4 className="text-accentOrange text-xl font-semibold mb-2">Kevin</h4>
-          <ul className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-            <li>Do the dishes</li>
-          </ul>
-
-          <a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Add New Chore
-            <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-            </svg>
-          </a>
-
-          <button className="bg-accentOrange text-white py-2 px-4 rounded-lg hover:bg-accentOrangeDark mt-3">
-            {/* add new chore moved from here */}
-          </button>
-        </div>
+      <div className="bg-surfaceLight rounded-lg p-4 flex flex-col gap-2">
+        <h4 className="text-accentOrange text-lg font-semibold">Kevin</h4>
+        <ul className="list-disc list-inside text-primaryDark">
+          <li>Do the dishes</li>
+          {/* More chores here */}
+        </ul>
+        <button className="bg-accentOrange text-white rounded-full px-4 py-2 text-sm font-semibold hover:bg-accentOrangeDark transition">
+          Add New Chore
+        </button>
       </div>
     </div>
   );
 }
 
 export default DayCard;
+
+// primaryDark: '#1A2B4C', // navy blue color
+// accentOrange: '#FF6600', // bright orange
+// accentOrangeDark: '#CC5200', // darker orange on hover
+// surface: '#2E3A59', // optional: lighter navy background for inside cards
+// lightGray: '#F7F9FA', // page background
