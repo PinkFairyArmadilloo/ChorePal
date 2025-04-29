@@ -8,7 +8,8 @@ import {
 
 function DayCard({ dayName }) {
   return (
-    <div className="bg-primaryDark text-white rounded-xl shadow-lg p-4 flex flex-col gap-4">
+    // added mt-6 and w-96 to try to fix height and width
+    <div className="bg-primaryDark text-white rounded-xl shadow-lg p-4 flex flex-col gap-4 mt-6 w-96">
       <h3 className="text-2xl font-bold">{dayName}</h3>
 
       <div className="bg-surfaceLight rounded-lg p-4 flex flex-col gap-2">
