@@ -35,11 +35,13 @@ choreRoutes.route('/chores/:id').get(async (req, res) => {
 choreRoutes.route('/chores').post(async (req, res) => {
   let db = database.getDb();
   let mongoObject = {
-    choreName: req.body.chorename,
-    isWeekly: req.body.isweekly,
-    isCompleted: req.body.iscompleted,
+    choreName: req.body.choreName,
+    isWeekly: req.body.isWeekly,
+    isCompleted: req.body.isCompleted,
     rating: req.body.rating,
-    child: req.body.child,
+    childName: req.body.childName,
+    image: req.body.image,
+    day: req.body.day,
   };
   let data = await db.collection('chores').insertOne(mongoObject);
   res.json(data);
@@ -50,11 +52,13 @@ choreRoutes.route('/chores/:id').put(async (req, res) => {
   let db = database.getDb();
   let mongoObject = {
     $set: {
-      choreName: req.body.chorename,
-      isWeekly: req.body.isweekly,
-      isCompleted: req.body.iscompleted,
+      choreName: req.body.choreName,
+      isWeekly: req.body.isWeekly,
+      isCompleted: req.body.isCompleted,
       rating: req.body.rating,
-      child: req.body.child,
+      childName: req.body.childName,
+      image: req.body.image,
+      day: req.body.day,
     },
   };
   let data = await db

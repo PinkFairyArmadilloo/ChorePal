@@ -48,7 +48,7 @@ userRoutes.route('/users').post(async (req, res) => {
       username: req.body.name,
       email: req.body.email,
       password: hash,
-      children: req.body.children,
+      childrenName: req.body.childrenName,
     };
     let data = await db.collection('users').insertOne(mongoObject);
     res.json(data);
@@ -62,7 +62,7 @@ userRoutes.route('/users/:id').put(async (req, res) => {
       name: req.body.name,
       email: req.body.email,
       password: req.body.password,
-      children: req.body.children,
+      childrenName: req.body.childrenName,
     },
   };
   let data = await db
