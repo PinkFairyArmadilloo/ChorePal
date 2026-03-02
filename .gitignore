@@ -24,6 +24,10 @@ lerna-debug.log*
 
 # Ignore environment variable files
 *.env
+backend/config.env
+
+# Private notes (not for version control)
+private.claude.md
 
 # Ignore editor settings and system files
 .vscode/
