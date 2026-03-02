@@ -7,44 +7,48 @@ ChorePal is a family chore management app. Parents create chore assignments for 
 ```bash
 # Frontend (from /frontend)
 npm run dev          # Vite dev server → http://localhost:5173
+npm run type-check   # tsc --noEmit — verify TypeScript with no build output
 
 # Backend (from /backend)
-node connect.js      # Express server → http://localhost:3000
-npx nodemon connect.js  # with auto-reload
+npm run dev          # nodemon + ts-node server.ts → http://localhost:3000
+npm run build        # tsc — compile TypeScript to dist/
+npm start            # node dist/server.js (run build first)
 ```
 
 ## Tech stack
 | Layer | Tech |
 |---|---|
-| Frontend | React 19, Redux Toolkit, React Router DOM 7, Tailwind CSS 4, Vite |
-| Backend | Node.js, Express 5, MongoDB (Mongoose), JWT, bcrypt, Multer |
+| Frontend | React 19, TypeScript, Redux Toolkit, React Router DOM 7, Tailwind CSS 4, Vite, Framer Motion |
+| Backend | Node.js, Express 5, TypeScript, MongoDB (raw driver), JWT, bcrypt, Multer, ts-node |
 | Storage | AWS S3 (bucket: ptangatuestorage, region: us-east-2) |
 | Testing | Jest (frontend + backend) |
 
 ## Key file paths
 ```
 /frontend/src/
-  App.jsx                    — routes (/ login, /dashboard)
-  main.jsx                   — Redux Provider + BrowserRouter
+  App.tsx                    — routes (/ login, /dashboard)
+  main.tsx                   — Redux Provider + BrowserRouter
   index.css                  — global styles + CSS custom properties
-  pages/Login.jsx            — auth (login + signup toggle)
-  pages/Dashboard.jsx        — main view (loads chores, renders WeekView + ProgressWeekly + Navbar)
-  components/Navbar.jsx      — top nav + wanted poster display
-  components/WeekView.jsx    — 7-day grid of DayCards
-  components/DayCard.jsx     — per-day chore list with status select
-  components/AddChore.jsx    — inline form to create a chore
-  utils/ProgressBar.jsx      — single-child progress bar with ARIA
-  utils/ProgressWeekly.jsx   — all-children progress summary
-  redux/choreSlice.js        — async thunks: fetchChores, addChore, completeChore, deleteChore
-  redux/store.js             — Redux store
+  types/index.ts             — shared domain types: Chore, ChoreStatus, ChoreDay, API responses
+  pages/Login.tsx            — auth (login + signup toggle)
+  pages/Dashboard.tsx        — main view (loads chores, renders WeekView + ProgressWeekly + Navbar)
+  components/Navbar.tsx      — top nav + wanted poster display
+  components/WeekView.tsx    — 7-day grid of DayCards
+  components/DayCard.tsx     — per-day chore list, completion animations, aria-live announcements
+  components/AddChore.tsx    — inline form to create a chore
+  utils/ProgressBar.tsx      — single-child progress bar with ARIA
+  utils/ProgressWeekly.tsx   — all-children progress summary
+  redux/choreSlice.ts        — async thunks: fetchChores, addChore, completeChore, deleteChore
+  redux/store.ts             — Redux store + RootState/AppDispatch types
 
 /backend/
-  server.js                  — Express app, middleware, route mounting
-  connect.js                 — MongoDB Atlas connection entry point
-  userRoutes.js              — GET/POST/PUT/DELETE /users, POST /users/login (JWT)
-  choreRoutes.js             — GET/POST/PUT/DELETE /chores
-  childRoutes.js             — GET/POST/PUT/DELETE /children
-  awsRoutes.js               — GET /images/:filename (S3 → base64)
+  server.ts                  — Express app entry point, middleware, route mounting
+  connect.ts                 — MongoDB Atlas connection module (connectToServer, getDb)
+  userRoutes.ts              — GET/POST/PUT/DELETE /users, POST /users/login (JWT)
+  choreRoutes.ts             — GET/POST/PUT/DELETE /chores
+  childRoutes.ts             — GET/POST/PUT/DELETE /children
+  awsRoutes.ts               — GET /images/:filename (S3 → base64)
+  src/types/domain.ts        — shared backend types: DbUser, DbChore, DbChild, JWTPayload
 ```
 
 ## Color scheme (CSS custom properties in index.css)
