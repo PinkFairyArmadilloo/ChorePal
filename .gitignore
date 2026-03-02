@@ -26,6 +26,9 @@ lerna-debug.log*
 *.env
 backend/config.env
 
+# Private notes (not for version control)
+private.claude.md
+
 # Ignore editor settings and system files
 .vscode/
 .idea/

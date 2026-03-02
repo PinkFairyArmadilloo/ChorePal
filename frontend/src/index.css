@@ -25,6 +25,29 @@
   --card: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* Global focus indicator — WCAG 2.4.7 Focus Visible
+   Uses focus-visible so ring only shows for keyboard nav, not mouse clicks */
+*:focus-visible {
+  outline: 2px solid #cc5200; /* accentOrangeDark — 4.77:1 on white, passes AA */
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Skip link — WCAG 2.4.1 Bypass Blocks */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+}
+
 /* Set up default global styles */
 :root {
   color-scheme: light dark;
