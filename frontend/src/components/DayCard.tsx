@@ -76,7 +76,7 @@ const DayCard = ({ day, chores }: DayCardProps): React.JSX.Element => {
   };
 
   return (
-    <div className='bg-linear-to-r from-gray-300 via-gray-500 to-gray-700 text-blue-900 rounded-2xl shadow-lg p-5 flex flex-col gap-5 mt-6 w-90'>
+    <div className='bg-linear-to-r from-gray-300 via-gray-500 to-gray-700 dark:from-gray-700 dark:via-gray-800 dark:to-gray-900 text-blue-900 dark:text-gray-100 rounded-2xl shadow-lg p-5 flex flex-col gap-5 mt-6 w-90'>
 
       {/* Visually hidden aria-live region — announces state changes to screen readers */}
       <div
@@ -90,9 +90,9 @@ const DayCard = ({ day, chores }: DayCardProps): React.JSX.Element => {
 
       <h3 className='text-2xl font-bold tracking-wide'>{day.toUpperCase()}</h3>
 
-      <div className='bg-surfaceLight rounded-xl p-4 flex flex-col gap-3'>
+      <div className='bg-surfaceLight dark:bg-gray-800/60 rounded-xl p-4 flex flex-col gap-3'>
         {chores.length > 0 ? (
-          <ul className='list-disc list-inside text-primaryDark space-y-1'>
+          <ul className='list-disc list-inside text-primaryDark dark:text-gray-100 space-y-1'>
             {chores.map((chore) => (
               <motion.li
                 key={chore._id}
@@ -106,8 +106,8 @@ const DayCard = ({ day, chores }: DayCardProps): React.JSX.Element => {
                 // transition-colors gives a smooth hue shift from orange → green
                 className={`text-base font-semibold flex items-center gap-2 transition-colors duration-300 ${
                   chore.status === 'Completed'
-                    ? 'text-green-900'
-                    : 'text-orange-800'
+                    ? 'text-green-900 dark:text-green-400'
+                    : 'text-orange-800 dark:text-orange-300'
                 }`}
               >
                 {images[chore._id] && (
@@ -136,7 +136,7 @@ const DayCard = ({ day, chores }: DayCardProps): React.JSX.Element => {
             ))}
           </ul>
         ) : (
-          <p className='text-sm text-black/70 italic'>No chores assigned.</p>
+          <p className='text-sm text-black/70 dark:text-white/60 italic'>No chores assigned.</p>
         )}
 
         <button

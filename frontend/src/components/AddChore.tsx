@@ -59,14 +59,14 @@ const AddChoreForm = ({ day, onClose }: AddChoreFormProps): React.JSX.Element =>
   };
 
   return (
-    <div className='bg-white p-4 rounded shadow-md mt-4'>
+    <div className='bg-white dark:bg-gray-800 dark:text-white p-4 rounded shadow-md mt-4'>
       <h3>Add New Chore for {day.toUpperCase()}</h3>
       {formError && (
         <p
           id='add-chore-error'
           role='alert'
           aria-live='assertive'
-          className='text-red-700 text-sm mb-2'
+          className='text-red-700 dark:text-red-400 text-sm mb-2'
         >
           ⚠ {formError}
         </p>
@@ -86,7 +86,7 @@ const AddChoreForm = ({ day, onClose }: AddChoreFormProps): React.JSX.Element =>
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setChoreName(e.target.value)
             }
-            className='border p-2 rounded'
+            className='border p-2 rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white'
             required
           />
         </div>
@@ -99,7 +99,7 @@ const AddChoreForm = ({ day, onClose }: AddChoreFormProps): React.JSX.Element =>
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setChildName(e.target.value)
             }
-            className='border p-2 rounded'
+            className='border p-2 rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white'
             required
           />
           <label className='flex items-center gap-2'>
@@ -123,7 +123,7 @@ const AddChoreForm = ({ day, onClose }: AddChoreFormProps): React.JSX.Element =>
           <button
             type='button'
             onClick={onClose}
-            className='bg-gray-300 px-4 py-2 rounded hover:bg-gray-400 transition'
+            className='bg-gray-300 dark:bg-gray-600 dark:text-white px-4 py-2 rounded hover:bg-gray-400 dark:hover:bg-gray-500 transition'
           >
             Cancel
           </button>
